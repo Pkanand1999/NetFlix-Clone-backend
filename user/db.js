@@ -9,3 +9,5 @@ async function Database(){
         console.log("Error connecting to MongoDB");
     });
 }
+
+module.exports = Database;
