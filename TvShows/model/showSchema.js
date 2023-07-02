@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const movies = new mongoose.Schema({
+const shows = new mongoose.Schema({
     kind: {
         type: String,
     },
@@ -21,5 +21,5 @@ const movies = new mongoose.Schema({
     }
 });
 
-const Movie = mongoose.model('Movie', movies);
-module.exports = Movie;
+const Tvshow = mongoose.model('Tvshow', shows);
+module.exports = Tvshow;

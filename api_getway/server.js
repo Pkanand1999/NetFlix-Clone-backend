@@ -10,6 +10,9 @@ const express = require('express');
     "/netflix/v2/hollywood": "http://localhost:4002",
     "/netflix/v2/bollywood": "http://localhost:4002",
     "/netflix/v2/cartoon": "http://localhost:4002",
+    "/netflix/v2/indianWebseries": "http://localhost:4003",
+    "/netflix/v2/tvshow": "http://localhost:4003",
+    "/netflix/v2/englishSeries": "http://localhost:4003",
  }
 
  for (route in routes) {
