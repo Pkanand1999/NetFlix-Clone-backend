@@ -29,6 +29,28 @@ app.get('/netflix/v2/hollywood',async (req, res) => {
  }
 })
 
+app.get('/netflix/v2/bollywood',async (req, res) => {
+ try{
+    let list=await movies.find({kind:'Bollywood'});
+    console.log(list);
+    res.status(200).send(list);
+
+ }catch(error){
+ res.status(500).send(error)
+ }
+})
+
+app.get('/netflix/v2/cartoon',async (req, res) => {
+ try{
+    let list=await movies.find({kind:'Cartoon'});
+    console.log(list);
+    res.status(200).send(list);
+
+ }catch(error){
+ res.status(500).send(error)
+ }
+})
+
 Database();
 app.listen(port,()=>{
     console.log(port);
