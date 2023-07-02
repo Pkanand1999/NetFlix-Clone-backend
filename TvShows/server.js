@@ -3,13 +3,13 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const Database = require('./db');
-const movies = require('./model/movieSchema');
+const movies = require('./model/showSchema');
 
 dotenv.config();
 
 const app = express();
 
-const port=(process.env.MOVIE_PORT); 
+const port=(process.env.SHOW_PORT); 
 
 
 app.use(cors());
@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
 
 
-app.get('/netflix/v2/hollywood',async (req, res) => {
+app.get('/netflix/v2/indianWebseries',async (req, res) => {
  try{
-    let list=await movies.find({kind:'Hollywood'});
+    let list=await movies.find({kind:'IndianWebseries'});
     console.log(list);
     res.status(200).send(list);
 
@@ -29,9 +29,9 @@ app.get('/netflix/v2/hollywood',async (req, res) => {
  }
 })
 
-app.get('/netflix/v2/bollywood',async (req, res) => {
+app.get('/netflix/v2/tvshow',async (req, res) => {
  try{
-    let list=await movies.find({kind:'Bollywood'});
+    let list=await movies.find({kind:'Tvshow'});
     console.log(list);
     res.status(200).send(list);
 
@@ -40,9 +40,9 @@ app.get('/netflix/v2/bollywood',async (req, res) => {
  }
 })
 
-app.get('/netflix/v2/cartoon',async (req, res) => {
+app.get('/netflix/v2/englishSeries',async (req, res) => {
  try{
-    let list=await movies.find({kind:'Cartoon'});
+    let list=await movies.find({kind:'EnglishSeries'});
     console.log(list);
     res.status(200).send(list);
 
