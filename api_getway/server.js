@@ -3,12 +3,11 @@ const express = require('express');
 
  const app = express();
 
- const port = process.env.GETWAY_PORT;
-
+ const port = process.env.GETWAY_PORT || 8080;
+ 
  const routes={
     "/netflix/user": "http://localhost:4001",
-    "/public/v2/users/update": "http://localhost:4002",
-    "/download": "http://localhost:4003",
+    "/netflix/v2/hollywood": "http://localhost:4002",
  }
 
  for (route in routes) {
