@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
 
 
-app.get('/netflix/v2/hollywood',async (req, res) => {
+app.get('/api/netflix/v2/hollywood',async (req, res) => {
  try{
     let list=await movies.find({kind:'Hollywood'});
     console.log(list);
@@ -29,7 +29,7 @@ app.get('/netflix/v2/hollywood',async (req, res) => {
  }
 })
 
-app.get('/netflix/v2/bollywood',async (req, res) => {
+app.get('/api/netflix/v2/bollywood',async (req, res) => {
  try{
     let list=await movies.find({kind:'Bollywood'});
     console.log(list);
@@ -40,7 +40,7 @@ app.get('/netflix/v2/bollywood',async (req, res) => {
  }
 })
 
-app.get('/netflix/v2/cartoon',async (req, res) => {
+app.get('/api/netflix/v2/cartoon',async (req, res) => {
  try{
     let list=await movies.find({kind:'Cartoon'});
     console.log(list);

@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
 
 
-app.get('/netflix/v2/indianWebseries',async (req, res) => {
+app.get('/api/netflix/v2/indianWebseries',async (req, res) => {
  try{
     let list=await movies.find({kind:'IndianWebseries'});
     console.log(list);
@@ -29,7 +29,7 @@ app.get('/netflix/v2/indianWebseries',async (req, res) => {
  }
 })
 
-app.get('/netflix/v2/tvshow',async (req, res) => {
+app.get('/api/netflix/v2/tvshow',async (req, res) => {
  try{
     let list=await movies.find({kind:'Tvshow'});
     console.log(list);
@@ -40,7 +40,7 @@ app.get('/netflix/v2/tvshow',async (req, res) => {
  }
 })
 
-app.get('/netflix/v2/englishSeries',async (req, res) => {
+app.get('/api/netflix/v2/englishSeries',async (req, res) => {
  try{
     let list=await movies.find({kind:'EnglishSeries'});
     console.log(list);
