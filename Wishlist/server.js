@@ -29,7 +29,8 @@ app.post('/api/netflix/v2/mywishlist',async (req, res) => {
     res.status(200).send(data);
    }
    if(list.length==0){
-    let data=await wishlists.create({...param})
+    await wishlists.create({...param})
+    let data=await wishlists.find({userId:param.userId});
     res.status(201).send(data);
    }
 
