@@ -34,6 +34,21 @@ app.post('/api/netflix/v2/user', async function (req, res) {
         res.status(500).send(error);
     }
 })
+app.post('/api/netflix/v2/plan', async function (req, res) {
+    try {
+        let user = req.body;
+        let finduser = await users.find({ email: user.email });
+        if (finduser.length == 0) {
+            res.status(404).send('')
+        }
+        if (finduser.length == 1) {
+            res.status(200).send(finduser)
+        }
+
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
 
 Database();
 app.listen(port, () => {

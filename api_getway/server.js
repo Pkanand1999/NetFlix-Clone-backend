@@ -8,6 +8,7 @@ const express = require('express');
  
  const routes={
     "/api/netflix/v2/user": "http://localhost:4001",
+    "/api/netflix/v2/plan": "http://localhost:4001",
     "/api/netflix/v2/hollywood": "http://localhost:4002",
     "/api/netflix/v2/bollywood": "http://localhost:4002",
     "/api/netflix/v2/cartoon": "http://localhost:4002",
