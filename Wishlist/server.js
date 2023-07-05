@@ -16,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
+app.use(express.static("dist"));
 
 
 app.post('/api/netflix/v2/mywishlist',async (req, res) => {
@@ -24,7 +25,8 @@ app.post('/api/netflix/v2/mywishlist',async (req, res) => {
     let list=await wishlists.find({videoId:param.videoId,userId:param.userId});
    if(list.length!=0){
     await wishlists.findOneAndDelete({videoId:param.videoId,userId:param.userId})
-    res.status(200).send(list);
+    let data= await wishlists.find({userId:param.userId});
+    res.status(200).send(data);
    }
    if(list.length==0){
     let data=await wishlists.create({...param})
@@ -46,7 +48,9 @@ app.post('/api/netflix/v2/getlist',async (req, res) => {
  res.status(500).send(error)
  }
 })
-
+app.get('*/',(req, res) =>{
+   res.sendFile(__dirname + '/dist/index.html')
+})
 
 Database();
 app.listen(port,()=>{

@@ -16,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
+app.use(express.static("dist"));
 
 
 app.get('/api/netflix/v2/indianWebseries',async (req, res) => {
@@ -49,6 +50,9 @@ app.get('/api/netflix/v2/englishSeries',async (req, res) => {
  }catch(error){
  res.status(500).send(error)
  }
+})
+app.get('*/',(req, res) =>{
+   res.sendFile(__dirname + '/dist/index.html')
 })
 
 Database();
