@@ -2,11 +2,12 @@ const express = require('express');
  const {createProxyMiddleware} = require('http-proxy-middleware');
 
  const app = express();
+ app.use(express.static("dist"));
 
  const port = process.env.GETWAY_PORT || 8080;
  
  const routes={
-    "/api/netflix/user": "http://localhost:4001",
+    "/api/netflix/v2/user": "http://localhost:4001",
     "/api/netflix/v2/hollywood": "http://localhost:4002",
     "/api/netflix/v2/bollywood": "http://localhost:4002",
     "/api/netflix/v2/cartoon": "http://localhost:4002",
@@ -21,6 +22,9 @@ const express = require('express');
     const target=routes[route];
     app.use(route, createProxyMiddleware({ target }));
  }
+ app.get('*/',(req, res) =>{
+   res.sendFile(__dirname + '/dist/index.html')
+})
 
  app.listen(port,()=>{
     console.log('listening on port'+ port)
