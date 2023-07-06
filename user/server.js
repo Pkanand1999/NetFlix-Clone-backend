@@ -17,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(express.static("dist"));
 
 app.post('/api/netflix/v2/user', async function (req, res) {
     try {
@@ -49,6 +50,9 @@ app.post('/api/netflix/v2/plan', async function (req, res) {
         res.status(500).send(error);
     }
 })
+app.get('*/',(req, res) =>{
+    res.sendFile(__dirname + '/dist/index.html')
+ })
 
 Database();
 app.listen(port, () => {
