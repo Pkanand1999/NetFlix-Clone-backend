@@ -7,16 +7,16 @@ const express = require('express');
  const port = process.env.GETWAY_PORT || 8080;
  
  const routes={
-    "/api/netflix/v2/user": "https://four001.onrender.com",
-    "/api/netflix/v2/plan": "https://four001.onrender.com",
-    "/api/netflix/v2/hollywood": "https://four002.onrender.com",
-    "/api/netflix/v2/bollywood": "https://four002.onrender.com",
-    "/api/netflix/v2/cartoon": "https://four002.onrender.com",
-    "/api/netflix/v2/indianWebseries": "https://four003.onrender.com",
-    "/api/netflix/v2/tvshow": "https://four003.onrender.com",
-    "/api/netflix/v2/englishSeries": "https://four003.onrender.com",
-    "/api/netflix/v2/mywishlist": "https://four004.onrender.com",
-    "/api/netflix/v2/getlist": "https://four004.onrender.com",
+    "/api/netflix/v2/user": "http://localhost:4001",
+    "/api/netflix/v2/plan": "http://localhost:4001",
+    "/api/netflix/v2/hollywood": "http://localhost:4002",
+    "/api/netflix/v2/bollywood": "http://localhost:4002",
+    "/api/netflix/v2/cartoon": "http://localhost:4002",
+    "/api/netflix/v2/indianWebseries": "http://localhost:4003",
+    "/api/netflix/v2/tvshow": "http://localhost:4003",
+    "/api/netflix/v2/englishSeries": "http://localhost:4003",
+    "/api/netflix/v2/mywishlist": "http://localhost:4004",
+    "/api/netflix/v2/getlist": "http://localhost:4004",
  }
 
  for (route in routes) {
